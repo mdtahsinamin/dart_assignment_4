@@ -40,7 +40,9 @@ class CurrentAccount extends Account {
 
   @override
   withdraw(double amount) {
-    if (amount <= overdraftLimit) {
+    double totalAmountWithDraw = 0;
+    totalAmountWithDraw += amount;
+    if (totalAmountWithDraw <= overdraftLimit) {
       super.balance -= amount;
     } else {
       print("Insufficient funds");
