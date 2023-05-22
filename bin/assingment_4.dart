@@ -1,6 +1,6 @@
 abstract class Account {
-  int accountNumber;
-  double balance;
+  late int accountNumber;
+  late double balance;
 
   Account(this.accountNumber, this.balance);
 
@@ -37,10 +37,10 @@ class CurrentAccount extends Account {
   /// Allow withdrawals up to the overdraft limit.
   ///If the withdrawal amount exceeds the overdraft limit, print a message indicating
   // insufficient funds.
+  double totalAmountWithDraw = 0;
 
   @override
   withdraw(double amount) {
-    double totalAmountWithDraw = 0;
     totalAmountWithDraw += amount;
     if (totalAmountWithDraw <= overdraftLimit) {
       super.balance -= amount;
